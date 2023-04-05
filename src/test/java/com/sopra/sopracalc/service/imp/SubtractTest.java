@@ -29,4 +29,9 @@ class SubtractTest {
         assertEquals(result,subtract.operationInit(paramOne,paramTwo));
     }
 
+    @Test
+    void operationNotValid() {
+        assertEquals(CalcException.INPUT_INVALID.getBusinessError(), subtract
+                .operationInit("A","10").substring(0,13));
+    }
 }

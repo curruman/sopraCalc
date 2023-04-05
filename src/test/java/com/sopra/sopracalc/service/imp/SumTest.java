@@ -28,4 +28,18 @@ class SumTest {
         assertEquals(result,sum.operationInit(paramOne,paramTwo));
     }
 
+    private static Stream<Arguments> notValid() {
+        return Stream.of(
+                Arguments.of("25i", "2030"),
+                Arguments.of("0.31416", "A"),
+                Arguments.of("B", "45Z"));
+    }
+
+    @ParameterizedTest
+    @MethodSource("notValid")
+    void operationNotValid(String paramOne, String paramTwo) {
+        assertEquals(CalcException.INPUT_INVALID.getBusinessError(),sum.operationInit(paramOne,paramTwo)
+                .substring(0,13));
+    }
+
 }
