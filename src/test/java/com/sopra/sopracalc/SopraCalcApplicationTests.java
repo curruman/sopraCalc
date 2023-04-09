@@ -8,6 +8,7 @@ class SopraCalcApplicationTests {
 
 	@Test
 	void contextLoads() {
+		SopraCalcApplication.main(new String[] {});
 	}
 
 }
